@@ -37,9 +37,7 @@ describe '(Check CambriaUSA main site)' do
 	end
 
 	it 'should confirm all Design upper nav links exist' do
-		puts "Confirming Header - Design links"
-		puts "<br>"
-    	@browser.a(:text => /Designs/).click
+		@browser.a(:text => /Designs/).click
     	sleep 1
     	@browser.text.should include("Design Palette")
     	@browser.text.should include("Edge Profiles")
@@ -50,9 +48,7 @@ describe '(Check CambriaUSA main site)' do
 	end
 
 	it 'should confirm all Advantages upper nav links exist' do
-		puts "Confirming Header - Advantages links"
-		puts "<br>"
-    	@browser.a(:text => /Advantages/).click
+		@browser.a(:text => /Advantages/).click
     	sleep 1
        	@browser.text.should include("Cambria Difference")
     	@browser.text.should include("Performance Benefits")
@@ -63,8 +59,6 @@ describe '(Check CambriaUSA main site)' do
 
 
 	it 'should confirm all Purchasing upper nav links exist' do
-    	puts "Confirming Header - Purchasing links"
-		puts "<br>"
     	@browser.a(:text => /Purchasing/).click
     	sleep 1
        	@browser.text.should include("Dealer Locator")
@@ -75,8 +69,6 @@ describe '(Check CambriaUSA main site)' do
     end
 
 	it 'should confirm all Customer Care upper nav links exist' do
-    	puts "Confirming Header - Customer Care links"
-		puts "<br>"
     	@browser.a(:text => /Customer Care/).click
     	sleep 1
        	@browser.text.should include("Warranty & Registration")
@@ -87,8 +79,6 @@ describe '(Check CambriaUSA main site)' do
     end
 
 	it 'should confirm all Professionals Care upper nav links exist' do
-    	puts "Confirming Header - Professionals links"
-		puts "<br>"
     	@browser.a(:text => /Professionals/).click
     	sleep 1
        	@browser.text.should include("Our Dedication to You")
@@ -103,27 +93,42 @@ describe '(Check CambriaUSA main site)' do
 
 	it 'should confirm all main body links are clickable' do
 		@browser.a(:text => /Find Your Design/).click
+		puts "Browser URL = #{@browser.url}"
+		puts "<br>"
+		puts "Browser Title= #{@browser.title}"
 		@browser.back
 		@browser.a(:text => /View Our Gallery/).click
+		puts "Browser URL = #{@browser.url}"
+		puts "<br>"
+		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
 
-	it 'should confirm Design without Limits exists' do
+	it 'should confirm Design without Limits content exists' do
 		@browser.text.should include("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
 		@browser.a(:text => /Discover the Cambria Difference/).click
+		puts "Browser URL = #{@browser.url}"
+		puts "<br>"
+		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
-	it 'should confirm Secrets in Stone section exists' do
+	it 'should confirm Secrets in Stone content exists' do
 		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /See new designs.../).click
+		puts "Browser URL = #{@browser.url}"
+		puts "<br>"
+		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
-	it 'should confirm Natural Attaction section exists' do
+	it 'should confirm Natural Attaction content exists' do
 		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /Read more.../).click
+		puts "Browser URL = #{@browser.url}"
+		puts "<br>"
+		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
@@ -149,7 +154,7 @@ describe '(Check CambriaUSA main site)' do
 	end
 
 
-	it 'should validate social assets are clickable' do
+	it 'should validate social assets are visible' do
 		@browser.img(:src, /facebook/).exists?
 		@browser.img(:src, /twitter/).exists?
 		@browser.img(:src, /flickr/).exists?
