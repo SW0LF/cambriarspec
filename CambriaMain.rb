@@ -93,14 +93,8 @@ describe '(Check CambriaUSA main site)' do
 
 	it 'should confirm all main body links are clickable' do
 		@browser.a(:text => /Find Your Design/).click
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
 		@browser.back
 		@browser.a(:text => /View Our Gallery/).click
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
@@ -108,27 +102,18 @@ describe '(Check CambriaUSA main site)' do
 	it 'should confirm Design without Limits content exists' do
 		@browser.text.should include("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
 		@browser.a(:text => /Discover the Cambria Difference/).click
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
 	it 'should confirm Secrets in Stone content exists' do
 		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /See new designs.../).click
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
 	it 'should confirm Natural Attaction content exists' do
 		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /Read more.../).click
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
 		@browser.back
 	end
 
