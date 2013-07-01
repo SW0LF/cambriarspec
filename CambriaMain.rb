@@ -1,9 +1,9 @@
-# Name:    Cambria Main
+# Name:    CambriaMain
 # Version: .10
 # Date:    7/01/13
-# Author:  Scott Wolf
+# Author:  Scott
 #
-# Purpose:  The purpose of this script is to visit the main CambriaUSA site and to verify the header/footer links
+# Purpose:  The purpose of this script is to visit the main Cambri aUSA site and to verify the header/footer links
 # 			and also some of the content on the page.
 # 			There will be other scripts that will check deeper pages in the site, confirm the tiles are correct etc.
 #
