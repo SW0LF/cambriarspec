@@ -1,10 +1,10 @@
 # Name:    Cambria Main
-# Version: .02
-# Date:    6/21/13
+# Version: .10
+# Date:    7/01/13
 # Author:  Scott Wolf
 #
-# Purpose:  The purpose of this script is to visit the main CambriaUSA site and navigate the links at the top
-# 			level.
+# Purpose:  The purpose of this script is to visit the main CambriaUSA site and to verify the header/footer links
+# 			and also some of the content on the page.
 # 			There will be other scripts that will check deeper pages in the site, confirm the tiles are correct etc.
 #
 # Call the program with the following command:  "BROWSER=chrome rspec cambriamain.rb --format h > CambriaMain.html"
@@ -25,6 +25,7 @@ before :all do
     @browser = Watir::Browser.new(browser_type)
 end
 
+
 describe '(Check CambriaUSA main site)' do
 
 	it 'should navigate to CambriaUSA.com' do
@@ -36,6 +37,8 @@ describe '(Check CambriaUSA main site)' do
 	end
 
 	it 'should confirm all Design upper nav links exist' do
+		puts "Confirming Header - Design links"
+		puts "<br>"
     	@browser.a(:text => /Designs/).click
     	sleep 1
     	@browser.text.should include("Design Palette")
@@ -47,6 +50,8 @@ describe '(Check CambriaUSA main site)' do
 	end
 
 	it 'should confirm all Advantages upper nav links exist' do
+		puts "Confirming Header - Advantages links"
+		puts "<br>"
     	@browser.a(:text => /Advantages/).click
     	sleep 1
        	@browser.text.should include("Cambria Difference")
@@ -56,18 +61,106 @@ describe '(Check CambriaUSA main site)' do
     	@browser.text.should include("Certifications")
     end
 
+
+	it 'should confirm all Purchasing upper nav links exist' do
+    	puts "Confirming Header - Purchasing links"
+		puts "<br>"
+    	@browser.a(:text => /Purchasing/).click
+    	sleep 1
+       	@browser.text.should include("Dealer Locator")
+    	@browser.text.should include("Finance")
+    	@browser.text.should include("Getting an Estimate")
+    	@browser.text.should include("Buy Samples & Accessories")
+    	@browser.text.should include("Designer Resource Kit")
+    end
+
+	it 'should confirm all Customer Care upper nav links exist' do
+    	puts "Confirming Header - Customer Care links"
+		puts "<br>"
+    	@browser.a(:text => /Customer Care/).click
+    	sleep 1
+       	@browser.text.should include("Warranty & Registration")
+    	@browser.text.should include("Care & Maintenance")
+    	@browser.text.should include("Installation FAQ")
+    	@browser.text.should include("Request Information")
+    	@browser.text.should include("Customer Support")
+    end
+
+	it 'should confirm all Professionals Care upper nav links exist' do
+    	puts "Confirming Header - Professionals links"
+		puts "<br>"
+    	@browser.a(:text => /Professionals/).click
+    	sleep 1
+       	@browser.text.should include("Our Dedication to You")
+    	@browser.text.should include("Featured Designers")
+    	@browser.text.should include("Designer Resource Kit")
+    	@browser.text.should include("Commercial")
+    	@browser.text.should include("Partner Locator")
+    	@browser.text.should include("Commercial Representative")
+    	@browser.text.should include("Partner Portal")
+    end
+
+
 	it 'should confirm all main body links are clickable' do
-		
+		@browser.a(:text => /Find Your Design/).click
+		@browser.back
+		@browser.a(:text => /View Our Gallery/).click
+		@browser.back
 	end
 
-	it 'should confirm all footer links are clickable' do
- 		
+
+	it 'should confirm Design without Limits exists' do
+		@browser.text.should include("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
+		@browser.a(:text => /Discover the Cambria Difference/).click
+		@browser.back
 	end
+
+	it 'should confirm Secrets in Stone section exists' do
+		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
+		@browser.a(:text => /See new designs.../).click
+		@browser.back
+	end
+
+	it 'should confirm Natural Attaction section exists' do
+		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
+		@browser.a(:text => /Read more.../).click
+		@browser.back
+	end
+
+
+
+	it 'should confirm all Cambria Style footer links exist' do
+		@browser.text.should include("Cambria Style")
+		@browser.text.should include("Lifestyle")
+		@browser.text.should include("Style + Design")
+		@browser.text.should include("Eat + Drink")
+		@browser.text.should include("Featured Profiles")
+		@browser.text.should include("Travel + Leisure")
+		@browser.text.should include("Subscribe")
+	end
+
+	it 'should confirm all About Cambria footer links exist' do
+		@browser.text.should include("Legacy")
+		@browser.text.should include("Philanthropy")
+		@browser.text.should include("Partnership")
+		@browser.text.should include("Media Information")
+		@browser.text.should include("News & Events")
+		@browser.text.should include("Careers")		
+	end
+
 
 	it 'should validate social assets are clickable' do
-		
+		@browser.img(:src, /facebook/).exists?
+		@browser.img(:src, /twitter/).exists?
+		@browser.img(:src, /flickr/).exists?
+		@browser.img(:src, /youtube/).exists?
+		@browser.img(:src, /pintrest/).exists?
+		@browser.img(:src, /houzz/).exists?
 	end
 end
+
+
+
 
 
 #  Close the browser instance
