@@ -1,6 +1,6 @@
 # Name:    CambriaMain
-# Version: .10
-# Date:    7/01/13
+# Version: .20
+# Date:    7/02/13
 # Author:  Scott
 #
 # Purpose:  The purpose of this script is to visit the main Cambri aUSA site and to verify the header/footer links
@@ -8,6 +8,10 @@
 # 			There will be other scripts that will check deeper pages in the site, confirm the tiles are correct etc.
 #
 # Call the program with the following command:  "BROWSER=chrome rspec cambriamain.rb --format h > CambriaMain.html"
+
+# .10 - Had a working script
+# .20 - Optimized the code and included debugging steps which are commented
+#     - Set my local maching hosts file to facebook.com = 0.0.0.0 because of delays connecting
 
 
 require 'rspec'
@@ -31,9 +35,9 @@ describe '(Check CambriaUSA main site)' do
 	it 'should navigate to CambriaUSA.com' do
 		@browser.goto('http://www.CambriaUSA.com')
 		@browser.title.include?("Quartz Countertops | Stone Surfaces for the Kitchen, Bath & more | Cambria")
-		puts "Browser URL = #{@browser.url}"
-		puts "<br>"
-		puts "Browser Title= #{@browser.title}"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
 	end
 
 	it 'should confirm all Design upper nav links exist' do
@@ -91,29 +95,58 @@ describe '(Check CambriaUSA main site)' do
     end
 
 
-	it 'should confirm all main body links are clickable' do
-		@browser.a(:text => /Find Your Design/).click
-		@browser.back
+	it 'should confirm all Main Body links are clickable' do
 		@browser.a(:text => /View Our Gallery/).click
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
+		@browser.a(:text => /Find Your Design/).click
+#		puts "<hr>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
+		@browser.back
+
 	end
 
+		
 
 	it 'should confirm Design without Limits content exists' do
 		@browser.text.include?("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
 		@browser.a(:text => /Discover the Cambria Difference/).click
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 	end
+
+
 
 	it 'should confirm Secrets in Stone content exists' do
 		@browser.text.include?("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /See new designs.../).click
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 	end
 
 	it 'should confirm Natural Attaction content exists' do
 		@browser.text.include?("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /Read more.../).click
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 	end
 
@@ -142,21 +175,51 @@ describe '(Check CambriaUSA main site)' do
 	it 'should validate social assets links are visible and clickable' do
 		@browser.img(:alt => "Facebook").click
 		@browser.title.include?("Cambria | Facebook")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 		@browser.img(:alt => "Twitter").click
 		@browser.title.include?("Cambria (CambriaQuartz) on Twitter")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 		@browser.img(:alt => "Flickr").click
 		@browser.title.include?("Cambria Quartz's Photos")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 		@browser.img(:alt => "YouTube").click
 		@browser.title.include?("Cambria - YouTube")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 		@browser.img(:alt => "Pinterest").click
 		@browser.title.include?("Cambria (cambriaquartz) on Pinterest")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 		@browser.img(:alt => "Houzz").click
 		@browser.title.include?("Cambria Tile, Stone & Countertops US")
+#		puts "<br>"
+#		puts "Browser URL = #{@browser.url}"
+#		puts "<br>"
+#		puts "Browser Title= #{@browser.title}"
+#		puts "<br>"
 		@browser.back
 	end
 end
