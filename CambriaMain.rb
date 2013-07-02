@@ -39,55 +39,55 @@ describe '(Check CambriaUSA main site)' do
 	it 'should confirm all Design upper nav links exist' do
 		@browser.a(:text => /Designs/).click
     	sleep 1
-    	@browser.text.should include("Design Palette")
-    	@browser.text.should include("Edge Profiles")
-    	@browser.text.should include("Photos & Video")
-    	@browser.text.should include("Dream Board")
-    	@browser.text.should include("Paint Match Tool")
-    	@browser.text.should include("Studios & Galleries")
+    	@browser.text.include?("Design Palette")
+    	@browser.text.include?("Edge Profiles")
+    	@browser.text.include?("Photos & Video")
+    	@browser.text.include?("Dream Board")
+    	@browser.text.include?("Paint Match Tool")
+    	@browser.text.include?("Studios & Galleries")
 	end
 
 	it 'should confirm all Advantages upper nav links exist' do
 		@browser.a(:text => /Advantages/).click
     	sleep 1
-       	@browser.text.should include("Cambria Difference")
-    	@browser.text.should include("Performance Benefits")
-    	@browser.text.should include("Common Questions")
-    	@browser.text.should include("We are Green")
-    	@browser.text.should include("Certifications")
+       	@browser.text.include?("Cambria Difference")
+    	@browser.text.include?("Performance Benefits")
+    	@browser.text.include?("Common Questions")
+    	@browser.text.include?("We are Green")
+    	@browser.text.include?("Certifications")
     end
 
 
 	it 'should confirm all Purchasing upper nav links exist' do
     	@browser.a(:text => /Purchasing/).click
     	sleep 1
-       	@browser.text.should include("Dealer Locator")
-    	@browser.text.should include("Finance")
-    	@browser.text.should include("Getting an Estimate")
-    	@browser.text.should include("Buy Samples & Accessories")
-    	@browser.text.should include("Designer Resource Kit")
+       	@browser.text.include?("Dealer Locator")
+    	@browser.text.include?("Finance")
+    	@browser.text.include?("Getting an Estimate")
+    	@browser.text.include?("Buy Samples & Accessories")
+    	@browser.text.include?("Designer Resource Kit")
     end
 
 	it 'should confirm all Customer Care upper nav links exist' do
     	@browser.a(:text => /Customer Care/).click
     	sleep 1
-       	@browser.text.should include("Warranty & Registration")
-    	@browser.text.should include("Care & Maintenance")
-    	@browser.text.should include("Installation FAQ")
-    	@browser.text.should include("Request Information")
-    	@browser.text.should include("Customer Support")
+       	@browser.text.include?("Warranty & Registration")
+    	@browser.text.include?("Care & Maintenance")
+    	@browser.text.include?("Installation FAQ")
+    	@browser.text.include?("Request Information")
+    	@browser.text.include?("Customer Support")
     end
 
 	it 'should confirm all Professionals Care upper nav links exist' do
     	@browser.a(:text => /Professionals/).click
     	sleep 1
-       	@browser.text.should include("Our Dedication to You")
-    	@browser.text.should include("Featured Designers")
-    	@browser.text.should include("Designer Resource Kit")
-    	@browser.text.should include("Commercial")
-    	@browser.text.should include("Partner Locator")
-    	@browser.text.should include("Commercial Representative")
-    	@browser.text.should include("Partner Portal")
+       	@browser.text.include?("Our Dedication to You")
+    	@browser.text.include?("Featured Designers")
+    	@browser.text.include?("Designer Resource Kit")
+    	@browser.text.include?("Commercial")
+    	@browser.text.include?("Partner Locator")
+    	@browser.text.include?("Commercial Representative")
+    	@browser.text.include?("Partner Portal")
     end
 
 
@@ -100,19 +100,19 @@ describe '(Check CambriaUSA main site)' do
 
 
 	it 'should confirm Design without Limits content exists' do
-		@browser.text.should include("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
+		@browser.text.include?("Unequaled in beauty and durability, Cambria is fast becoming the preferred natural stone of many")
 		@browser.a(:text => /Discover the Cambria Difference/).click
 		@browser.back
 	end
 
 	it 'should confirm Secrets in Stone content exists' do
-		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
+		@browser.text.include?("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /See new designs.../).click
 		@browser.back
 	end
 
 	it 'should confirm Natural Attaction content exists' do
-		@browser.text.should include("Discover our two newest designs. The sandy riverbed swirls of")
+		@browser.text.include?("Discover our two newest designs. The sandy riverbed swirls of")
 		@browser.a(:text => /Read more.../).click
 		@browser.back
 	end
@@ -120,32 +120,44 @@ describe '(Check CambriaUSA main site)' do
 
 
 	it 'should confirm all Cambria Style footer links exist' do
-		@browser.text.should include("Cambria Style")
-		@browser.text.should include("Lifestyle")
-		@browser.text.should include("Style + Design")
-		@browser.text.should include("Eat + Drink")
-		@browser.text.should include("Featured Profiles")
-		@browser.text.should include("Travel + Leisure")
-		@browser.text.should include("Subscribe")
+		@browser.text.include?("Cambria Style")
+		@browser.text.include?("Lifestyle")
+		@browser.text.include?("Style + Design")
+		@browser.text.include?("Eat + Drink")
+		@browser.text.include?("Featured Profiles")
+		@browser.text.include?("Travel + Leisure")
+		@browser.text.include?("Subscribe")
 	end
 
 	it 'should confirm all About Cambria footer links exist' do
-		@browser.text.should include("Legacy")
-		@browser.text.should include("Philanthropy")
-		@browser.text.should include("Partnership")
-		@browser.text.should include("Media Information")
-		@browser.text.should include("News & Events")
-		@browser.text.should include("Careers")		
+		@browser.text.include?("Legacy")
+		@browser.text.include?("Philanthropy")
+		@browser.text.include?("Partnership")
+		@browser.text.include?("Media Information")
+		@browser.text.include?("News & Events")
+		@browser.text.include?("Careers")		
 	end
 
 
-	it 'should validate social assets are visible' do
-		@browser.img(:src, /facebook/).exists?
-		@browser.img(:src, /twitter/).exists?
-		@browser.img(:src, /flickr/).exists?
-		@browser.img(:src, /youtube/).exists?
-		@browser.img(:src, /pintrest/).exists?
-		@browser.img(:src, /houzz/).exists?
+	it 'should validate social assets links are visible and clickable' do
+		@browser.img(:alt => "Facebook").click
+		@browser.title.include?("Cambria | Facebook")
+		@browser.back
+		@browser.img(:alt => "Twitter").click
+		@browser.title.include?("Cambria (CambriaQuartz) on Twitter")
+		@browser.back
+		@browser.img(:alt => "Flickr").click
+		@browser.title.include?("Cambria Quartz's Photos")
+		@browser.back
+		@browser.img(:alt => "YouTube").click
+		@browser.title.include?("Cambria - YouTube")
+		@browser.back
+		@browser.img(:alt => "Pinterest").click
+		@browser.title.include?("Cambria (cambriaquartz) on Pinterest")
+		@browser.back
+		@browser.img(:alt => "Houzz").click
+		@browser.title.include?("Cambria Tile, Stone & Countertops US")
+		@browser.back
 	end
 end
 
