@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This command opens the main page and tests links
+BROWSER=chrome rspec cambriamain.rb --format h > CambriaMain.html
+
+# This opens the results page after the test has run
+open CambriaMain.html
